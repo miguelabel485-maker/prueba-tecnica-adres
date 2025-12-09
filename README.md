@@ -1,9 +1,9 @@
-# Prueba Técnica – Desarrollador Junior ADRES
+# Prueba TÃ©cnica â€“ Desarrollador Junior ADRES
 
-Este repositorio contiene el desarrollo de la prueba técnica para el cargo de **Desarrollador Junior**, compuesta por:
+Este repositorio contiene el desarrollo de la prueba tÃ©cnica para el cargo de **Desarrollador Junior**, compuesta por:
 
-1. Una aplicación web en **Django** que permite cargar y validar un archivo CSV.
-2. Un script en **Python** que extrae el CUFE desde facturas en PDF y almacena la información en una base de datos **SQLite**.
+1. Una aplicaciÃ³n web en **Django** que permite cargar y validar un archivo CSV.
+2. Un script en **Python** que extrae el CUFE desde facturas en PDF y almacena la informaciÃ³n en una base de datos **SQLite**.
 
 ---
 
@@ -18,9 +18,9 @@ Las dependencias del proyecto se encuentran en el archivo `requirements.txt`.
 
 ---
 
-## 2. Instalación
+## 2. InstalaciÃ³n
 
 Clonar el repositorio (o descargarlo como ZIP) y entrar a la carpeta del proyecto:
 
-git clone https://github.com/miguelabel485-maker/prueba-tecnica-adres.git
-cd TU_REPOSITORIO
+git clone https://github.com/miguelabel1485-maker/prueba-tecnica-adres.git
+cd prueba-tecnica-adres
