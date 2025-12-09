@@ -41,7 +41,7 @@ def procesar_pdf(ruta_pdf: str, conn: sqlite3.Connection):
     if match:
         cufe = match.group(0).replace("\n", "")
     else:
-        cufe = None  # o "NO_ENCONTRADO" si quieres texto
+        cufe = None  # o "NO_ENCONTRADO"
 
     cursor = conn.cursor()
     cursor.execute(
