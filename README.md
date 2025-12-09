@@ -1,9 +1,9 @@
-# Prueba TÃ©cnica â€“ Desarrollador Junior ADRES
+# Prueba Técnica – Desarrollador Junior ADRES
 
-Este repositorio contiene el desarrollo de la prueba tÃ©cnica para el cargo de **Desarrollador Junior**, compuesta por:
+Este repositorio contiene el desarrollo de la prueba técnica para el cargo de **Desarrollador Junior**, compuesta por:
 
-1. Una aplicaciÃ³n web en **Django** que permite cargar y validar un archivo CSV.
-2. Un script en **Python** (extract_cufe.py) que extrae el CUFE desde facturas en PDF y almacena la informaciÃ³n en una base de datos **SQLite**.
+1. Una aplicación web en **Django** que permite cargar y validar un archivo CSV.
+2. Un script en **Python** (extract_cufe.py) que extrae el CUFE desde facturas en PDF y almacena la información en una base de datos **SQLite**.
 
 ---
 
@@ -18,7 +18,7 @@ Las dependencias del proyecto se encuentran en el archivo `requirements.txt`.
 
 ---
 
-## 2. InstalaciÃ³n
+## 2. Instalación
 
 Clonar el repositorio (o descargarlo como ZIP) y entrar a la carpeta del proyecto:
 
