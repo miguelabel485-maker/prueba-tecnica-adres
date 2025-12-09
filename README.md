@@ -3,7 +3,7 @@
 Este repositorio contiene el desarrollo de la prueba técnica para el cargo de **Desarrollador Junior**, compuesta por:
 
 1. Una aplicación web en **Django** que permite cargar y validar un archivo CSV.
-2. Un script en **Python** que extrae el CUFE desde facturas en PDF y almacena la información en una base de datos **SQLite**.
+2. Un script en **Python** (extract_cufe.py) que extrae el CUFE desde facturas en PDF y almacena la información en una base de datos **SQLite**.
 
 ---
 
