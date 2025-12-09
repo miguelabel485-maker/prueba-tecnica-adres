@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validador de CSV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eceff1, #f5f5f5);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+            .header h1 {
+                margin: 0 0 8px 0;
+                color: #2c3e50;
+                font-size: 28px;
+            }
+
+            .header p {
+                margin: 0;
+                color: #7f8c8d;
+                font-size: 14px;
+            }
+
+        form {
+            text-align: center;
+            margin: 25px 0 10px 0;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+            button:hover {
+                background: #219150;
+            }
+
+        .summary {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .summary-card {
+            flex: 0 0 30%;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px 10px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .summary-title {
+            font-size: 12px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .summary-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .summary-ok .summary-value {
+            color: #27ae60;
+        }
+
+        .summary-error .summary-value {
+            color: #c0392b;
+        }
+
+        .success {
+            padding: 15px;
+            background: #d4edda;
+            color: #155724;
+            border-left: 5px solid #28a745;
+            margin-top: 25px;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .errors {
+            margin-top: 25px;
+        }
+
+            .errors h2 {
+                color: #c0392b;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 9px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f0f0f0;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Validador de Archivos CSV</h1>
+            <p>Sube el archivo, valida su estructura y revisa rápidamente si cumple con las reglas.</p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="archivo" accept=".csv"><br>
+            <button type="submit">Subir y validar</button>
+        </form>
+
+        {% if stats %}
+        <div class="summary">
+            <div class="summary-card">
+                <div class="summary-title">Filas totales</div>
+                <div class="summary-value">{{ stats.total }}</div>
+            </div>
+            <div class="summary-card summary-ok">
+                <div class="summary-title">Filas válidas</div>
+                <div class="summary-value">{{ stats.ok }}</div>
+            </div>
+            <div class="summary-card summary-error">
+                <div class="summary-title">Filas con error</div>
+                <div class="summary-value">{{ stats.con_error }}</div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if mensaje_exito %}
+        <div class="success">
+            {{ mensaje_exito }}
+        </div>
+        {% endif %}
+
+        {% if errores %}
+        <div class="errors">
+            <h2>Errores encontrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fila</th>
+                        <th>Columna</th>
+                        <th>Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in errores %}
+                    <tr>
+                        <td>{{ e.fila }}</td>
+                        <td>{{ e.columna }}</td>
+                        <td>{{ e.mensaje }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <div class="footer">
+            Prueba técnica – Validador CSV en Django
+        </div>
+    </div>
+
+</body>
+</html>
